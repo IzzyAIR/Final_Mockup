@@ -1,0 +1,59 @@
+@use '../colors' as *;
+
+.tablet-header {
+    display: none;
+
+    @media (max-width: 830px) {
+        display: flex;
+        column-gap: 20px;
+        align-items: center;
+        
+        background-color: white;
+        padding: 24px;
+        
+        &__divider-line {
+            width: 2px;
+            background-color: hsla(0, 0%, 92%, 1);
+            height: 32px;
+            border-radius: 1px;
+        }
+        
+        &__logo {
+            margin-right: auto;
+        }
+        
+        &__action-button-list {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 16px;
+        }
+    }
+
+    @media (max-width: 580px) {
+        &__contact-buttons, &__contact-buttons + &__divider-line {
+            display: none;
+        }
+    }
+
+    @media (max-width: 400px) {
+        padding: 16px;
+        justify-content: center;
+        
+        &__menu-button + &__divider-line {
+            display: none;
+        }
+
+        &__contact-buttons + &__divider-line {
+            display: block;
+        }
+
+        &__logo {
+            margin-right: 0px;
+        }
+    }
+
+    @media (max-width: 340px) {
+        column-gap: 14px;
+    }
+}

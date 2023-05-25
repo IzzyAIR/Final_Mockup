@@ -1,0 +1,105 @@
+@use '../colors' as *;
+@use '../reusable' as *;
+
+.tech-type {
+    height: 160px;
+    padding: 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    font-weight: 500;
+    border: 1px solid hsla(0, 0%, 92%, 1);
+    border-radius: 6px;
+    background-color: white;
+    min-width: 220px;
+
+    &__link {
+        align-self: flex-end;
+    }
+
+    .tech-types-section__tech-type-list & {
+        width: 22%;
+    }
+}
+
+.tech-types-section__expand-types-button {
+    display: none;
+}
+
+.tech-types-section {
+    padding-bottom: 50px;
+}
+
+.tech-types-slider {
+    padding: 0 22px 0 34px;
+    overflow-x: hidden;
+}
+
+@media (min-width: 375px) {
+    .tech-types-section {
+        &__tech-type-list {
+            display: flex;
+            column-gap: 32px;
+            flex-wrap: wrap;
+            row-gap: 16px;
+
+            max-height: 160px;
+            overflow-y: hidden;
+            margin-bottom: 24px;
+
+            &_expanded {
+                max-height: 100%;
+                overflow-y: visible;
+                overflow-x: visible;
+            }
+
+            @media (max-width: 800px) {
+                column-gap: 24px;
+            }
+        }
+
+        &__expand-types-button {
+            display: flex;
+            margin-left: 30px;
+        }
+    }
+}
+
+.tech-types-slider {
+    max-width: 100vw;
+    max-height: 100%;
+    min-height: 0;
+    min-width: 0;
+    
+    .swiper-pagination {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        column-gap: 12px;
+
+        &-bullet {
+            @extend .bullet;
+        }
+    
+        &-bullet-active {
+            @extend .bullet_active;
+        }
+    }
+}
+
+@media (min-width: 375px) and (max-width: 519px) {
+    
+}
+
+@media (min-width: 375px) and (max-width: 550px) {
+    .tech-types-section__tech-type-list {
+        grid-template-columns: minmax(195px, 95%);
+    }
+
+    .tech-types-slider {
+        padding: 0 24px;
+    }
+}

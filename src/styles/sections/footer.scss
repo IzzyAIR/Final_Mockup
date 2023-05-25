@@ -1,0 +1,61 @@
+@use '../colors' as *;
+@use '../reusable' as *;
+
+.page-footer {
+    position: relative;
+    padding: 32px 10px 20px 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    column-gap: 20px;
+    row-gap: 16px;
+    
+    background-color: $light-gray;
+
+    font-size: 14px;
+    color: $gray;
+    font-weight: 500;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 1px;
+        background-color: hsla(164, 100%, 93%, 1);
+    }
+
+    &__copyright, &__privacy-policy-link, &__note {
+        font-size: inherit;
+        color: inherit;
+    }
+
+    &__note {
+        width: 27%;
+        min-width: 213px;
+    }
+
+    @media (max-width: 1200px) {
+        padding: 32px 24px 20px 24px;
+    }
+
+    @media (max-width: 946px) and (min-width: 831px) {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-items: center;
+        column-gap: 30px;
+        row-gap: 30px;
+    }
+
+    @media (max-width: 580px) {
+        align-items: center;
+        flex-direction: column;
+        padding: 16px 10px;
+
+        &__copyright, &__privacy-policy-link, &__note {
+            text-align: center;
+            width: 100%;
+        }
+    }
+}

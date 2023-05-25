@@ -1,0 +1,120 @@
+@use '../colors' as *;
+@use '../reusable' as *;
+
+.brands-section {
+    padding: 50px 0 50px 10px;
+
+    &__expand-brands-button {
+        display: none;
+    }
+
+    @media (min-width: 375px) {
+        &__brand-list {
+            padding: 0 22px 0 38px;
+        
+            display: grid;
+            grid-template-columns: repeat(4, minmax(220px, 21%));
+            column-gap: 32px;
+            row-gap: 16px;
+            max-height: 184px;
+            overflow-y: hidden;
+            margin-bottom: 24px;
+
+            &_expanded {
+                max-height: 100%;
+                overflow-y: visible;
+                overflow-x: visible;
+            }
+        }
+
+        .brands-slider:has(.brands-section__brand-list_expanded) {
+            max-height: 100%;
+        }
+
+        &__expand-brands-button {
+            display: flex;
+            margin-left: 52px;
+        }
+    }
+
+    @media (max-width: 1410px) and (min-width: 375px) {
+        &__brand-list {
+            grid-template-columns: repeat(3, minmax(220px, 21%));
+        }
+    }
+
+    @media (max-width: 1118px) and (min-width: 375px) {
+        &__brand-list {
+            grid-template-columns: repeat(2, minmax(220px, 42%));
+        }
+    }
+
+    @media (max-width: 880px) and (min-width: 375px) {
+        &__brand-list {
+            grid-template-columns: repeat(2, minmax(180px, 42%));
+        }
+    }
+
+    @media (max-width: 860px) {
+        .brand__logo {
+            max-width: 60%;
+        }
+    }
+
+    @media (max-width: 550px) and (min-width: 375px) {
+        &__brand-list {
+            grid-template-columns: minmax(180px, 290px);
+            padding: 0 14px;
+        }
+
+        .brands-slider {
+            padding: 0px;
+        }
+    }
+}
+
+.brand {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    column-gap: 15px;
+    background-color: white;
+    border-radius: 6px;
+    align-items: center;
+    border: 1px solid hsla(0, 0%, 92%, 1);
+}
+
+.brands-slider {
+    max-width: 100vw;
+    max-height: 100vh;
+    min-height: 0;
+    min-width: 0;
+    padding: 0 16px 0 16px;
+
+    @media (min-width: 375px) {
+        .brands-slider {
+            overflow-y: hidden;
+        }
+    }
+
+    @media (max-width: 375px) {
+        .swiper-slide {
+            max-width: 180px;
+        }
+    }
+
+    .swiper-pagination {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        column-gap: 12px;
+
+        &-bullet {
+            @extend .bullet;
+        }
+    
+        &-bullet-active {
+            @extend .bullet_active;
+        }
+    }
+}

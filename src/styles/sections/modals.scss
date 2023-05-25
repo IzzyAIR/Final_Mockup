@@ -1,0 +1,90 @@
+@use '../colors' as *;
+@use '../reusable' as *;
+
+.modal {
+    z-index: 4;
+    position: fixed;
+    right: -120%;
+    top: 0px;
+
+    width: 440px;
+    height: 100vh;
+    padding: 40px 32px;
+    background-color: white;
+    box-shadow: 16px 0px 52px 0px hsla(231, 69%, 19%, 0.2), -2px 0px 4px 0px hsla(230, 29%, 38%, 0.02);
+
+    transition: right 0.5s ease;
+
+    &_opened {
+        right: 0px;
+
+        .modal-heading::after {
+            display: block;
+        }
+    }
+
+    &-heading {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 24px;
+
+        &::after {
+            display: none;
+            left: -32px;
+            height: 40px;
+        }
+    }
+
+    &__text-field {
+        width: 100%;
+        margin-bottom: 16px;
+        resize: none;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+    }
+
+    &__note {
+        font-size: 14px;
+        font-weight: 500;
+        color: $gray;
+
+        display: block;
+        margin-bottom: 23px;
+    }
+
+    &__link {
+        color: $orchid;
+    }
+
+    &__send-button {
+        align-self: flex-end;
+    }
+
+    &__close-button {
+        position: absolute;
+        top: 32px;
+        left: -66px;
+    }
+
+    @media (max-width: 600px) {
+        padding: 24px 16px;
+
+        &__close-button {
+            position: static;
+            margin-bottom: 40px;
+        }
+
+        &-heading::after {
+            left: -16px;
+        }
+    }
+
+    @media (max-width: 420px) {
+        width: 100vw;
+        box-shadow: none;
+    }
+}

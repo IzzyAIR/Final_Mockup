@@ -1,0 +1,209 @@
+@use '../colors' as *;
+@use '../reusable' as *;
+
+.price-plans-slider {
+    display: none;
+
+    max-width: 100vw;
+    max-height: 100%;
+    min-height: 0;
+    min-width: 0;
+    
+    .swiper-pagination {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        column-gap: 12px;
+    
+        &-bullet {
+            @extend .bullet;
+        }
+    
+        &-bullet-active {
+            @extend .bullet_active;
+        }
+    }
+}
+
+.pricing-section {
+    padding-bottom: 50px;
+
+    &__pricing-table {
+        border-spacing: 0;
+        width: 93.4%;
+        margin: 0 auto;
+    }
+
+    &__column-heading {
+        color: $gray;
+        font-weight: 500;
+        font-size: 14px;
+        text-align: left;
+        padding-bottom: 16px;
+
+        &:first-child {
+            padding-left: 24px;
+            width: 43%;
+        }
+    }
+
+    &__table-body {
+        background-color: white;
+        border-radius: 6px;
+    } 
+
+    &__table-row {
+        &:first-child {
+            .pricing-section__table-cell:first-child {
+                border-top-left-radius: 6px;
+            }
+
+            .pricing-section__table-cell:last-child {
+                border-top-right-radius: 6px;
+            }
+        }
+
+        &:last-child {
+            .pricing-section__table-cell {
+                border-bottom: 0px;
+            }
+
+            .pricing-section__table-cell:first-child {
+                border-bottom-left-radius: 6px;
+            }
+
+            .pricing-section__table-cell:last-child {
+                border-bottom-right-radius: 6px;
+            }
+        }
+    }
+
+    &__table-cell {
+        font-size: 14px;
+        font-weight: normal;
+        color: $charcoal;
+        padding: 16px 10px 16px 0;
+        border-bottom: 1px solid #EAEAEA;
+
+        &:first-child {
+            padding-left: 24px; 
+        }
+
+        &:last-child {
+            padding-right: 24px;
+        }
+    }
+
+    &__order-button {
+        margin-left: auto;
+    }
+
+    &__note {
+        font-size: 14px;
+        max-width: 420px;
+        margin-top: 24px;
+        margin-bottom: 16px;
+        margin-left: 44px;
+    }
+
+    &__get-offer-link {
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        font-size: 16px;
+        font-weight: 500;
+
+        margin-left: 44px;
+    }
+
+    @media (max-width: 830px) {
+        &__get-offer-link, &__note {
+            margin-left: 32px;
+            padding-right: 10px;
+        }
+    }
+    
+    @media (max-width: 570px) {
+        &__pricing-table {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        &__order-button {
+            font-size: 10px;
+        }
+
+        &__table-cell, &__column-heading {
+            font-size: 12px;
+        }
+
+        &__table-cell {
+            &:first-child {
+                padding-left: 24px; 
+            }
+    
+            &:last-child {
+                padding-right: 24px;
+            }
+        }
+    }
+
+    @media (max-width: 440px) {
+        padding-bottom: 40px;
+
+        &__pricing-table {
+            display: none;
+        }
+
+        .price-plans-slider {
+            display: block;
+            padding-left: 8px;
+
+            .swiper-wrapper {
+                align-items: stretch;
+            }
+        }
+
+        &__get-offer-link {
+            display: block;
+            max-width: 210px;
+            
+            img {
+                margin-left: 8px;
+            }
+        }
+    }
+}
+
+.price-plan {
+    padding: 16px;
+    background-color: white;
+    border-radius: 6px;
+    width: 260px;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    justify-content: space-between;
+
+    &__property {
+        font-weight: 500;
+        font-size: 14px;
+                
+        &-name {
+            color: $gray;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        column-gap: 10px;
+        width: 100%;
+        align-items: center;
+    }
+}
