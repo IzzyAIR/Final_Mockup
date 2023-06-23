@@ -6,7 +6,7 @@ if(window.innerWidth <= 768) {
     const pagenavSlider = new Swiper('.page-nav-slider', {
         slidesPerView: 'auto',
     })
-}
+}  
 
 console.log(window.innerWidth)
 if(window.innerWidth <= 440) {
