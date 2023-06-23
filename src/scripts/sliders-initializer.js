@@ -3,7 +3,7 @@ import Swiper, { Pagination } from 'swiper'
 Swiper.use([ Pagination ])
 
 if(window.innerWidth <= 768) {
-    const pageNavigationSlider = new Swiper('.page-navigation-slider', {
+    const pagenavSlider = new Swiper('.page-nav-slider', {
         slidesPerView: 'auto',
     })
 }
